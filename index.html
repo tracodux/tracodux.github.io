@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My App Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #20232a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .youtube-container {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .youtube-container iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+    }
+
+    main {
+      padding: 2rem 1rem;
+    }
+
+    #apps h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #e8e8e8;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .download-button {
+      background-color: #c8f7c5;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .download-button:hover {
+      background-color: #b2e6ad;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #20232a;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+      }
+
+      .download-button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to TRACODUX</h1>
+    <div class="youtube-container">
+      <iframe
+        src="https://www.youtube.com/@Tracodux"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </header>
+
+  <main>
+    <section id="apps">
+      <h2>My Apps</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Options</th>
+            <th>File</th>
+          </tr>
+        </thead>
+        <tbody id="appTable">
+          <!-- Rows inserted by JS -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Your Name</p>
+  </footer>
+
+  <script>
+    const apps = [
+      { version: "1.21.80.25", options: "Xbox+servers, no music", size: "255 MB", link: "#" },
+      { version: "1.21.80.25", options: "Xbox+servers+music", size: "560 MB", link: "#" },
+      { version: "1.21.80.25 clone", options: "Xbox+servers, no music", size: "260 MB", link: "#" },
+      { version: "1.21.80.25 clone", options: "Xbox+servers+music", size: "560 MB", link: "#" },
+      { version: "1.21.80.25 arm64-v8a", options: "Xbox+servers, no music", size: "255 MB", link: "#" },
+      { version: "1.21.80.25 arm64-v8a", options: "Xbox+servers+music", size: "570 MB", link: "#" },
+      { version: "1.21.80.25 arm64-v8a clone", options: "Xbox+servers, no music", size: "260 MB", link: "#" },
+      { version: "1.21.80.25 arm64-v8a clone", options: "Xbox+servers+music", size: "570 MB", link: "#" },
+    ];
+
+    const appTable = document.getElementById("appTable");
+
+    apps.forEach(app => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${app.version}</td>
+        <td>${app.options}</td>
+        <td><a class="download-button" href="${app.link}" target="_blank">Download (${app.size})</a></td>
+      `;
+      appTable.appendChild(row);
+    });
+  </script>
+</body>
+</html>
